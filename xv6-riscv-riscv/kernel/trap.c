@@ -5,11 +5,14 @@
 #include "spinlock.h"
 #include "proc.h"
 #include "defs.h"
+//#include "atomic.h"
 
 struct spinlock tickslock;
 uint ticks;
 
 extern char trampoline[], uservec[], userret[];
+//extern char trampoline[],  userret[];
+
 
 // in kernelvec.S, calls kerneltrap().
 void kernelvec();
@@ -37,7 +40,9 @@ void
 usertrap(void)
 {
   int which_dev = 0;
-
+#if TEST_DEBUG
+    printf("%s  sepc=%x sstatus=%x  scause = %x \n",__func__, r_sepc(), r_sstatus(), r_scause());
+#endif
   if((r_sstatus() & SSTATUS_SPP) != 0)
     panic("usertrap: not from user mode");
 
@@ -66,6 +71,10 @@ usertrap(void)
 
     syscall();
   } else if((which_dev = devintr()) != 0){
+    if(2 == which_dev)
+    {
+	 printf("************** %s timer interrupt \n",__func__);
+    }
     // ok
   } else {
     printf("usertrap(): unexpected scause %p pid=%d\n", r_scause(), p->pid);
@@ -90,7 +99,6 @@ void
 usertrapret(void)
 {
   struct proc *p = myproc();
-
   // we're about to switch the destination of traps from
   // kerneltrap() to usertrap(), so turn off interrupts until
   // we're back in user space, where usertrap() is correct.
@@ -121,13 +129,20 @@ usertrapret(void)
   // tell trampoline.S the user page table to switch to.
   uint64 satp = MAKE_SATP(p->pagetable);
 
+#if TEST_DEBUG
+    printf("%s  sepc=%x sstatus=%x, satp=%x, user satp = %x \r\n",__func__, r_sepc(), r_sstatus(), r_satp(),satp);
+#endif
+
   // jump to trampoline.S at the top of memory, which 
   // switches to the user page table, restores user registers,
   // and switches to user mode with sret.
   uint64 fn = TRAMPOLINE + (userret - trampoline);
+#if TEST_DEBUG
+    //printf("%s  fn=%x userret=%x, trampoline =%x, uservec= %x, TRAMPOLINE = %x , s_vec= %x \n\n",__func__, fn, userret, trampoline,uservec, TRAMPOLINE, (TRAMPOLINE + (uservec - trampoline)));
+#endif
   ((void (*)(uint64,uint64))fn)(TRAPFRAME, satp);
 }
-
+static int  volatile counter = 2;
 // interrupts and exceptions from kernel code go here via kernelvec,
 // on whatever the current kernel stack is.
 void 
@@ -151,8 +166,12 @@ kerneltrap()
 
   // give up the CPU if this is a timer interrupt.
   if(which_dev == 2 && myproc() != 0 && myproc()->state == RUNNING)
+  {
+#if KERN_TRAP_TEST_DEBUG
+        printf("%s timer interrupt ,old  sepc=%x old sstatus=%x  sepc=%x sstatus=%x\n",__func__, sepc, sstatus, r_sepc(), r_sstatus());
+#endif
     yield();
-
+   }
   // the yield() may have caused some traps to occur,
   // so restore trap registers for use by kernelvec.S's sepc instruction.
   w_sepc(sepc);
