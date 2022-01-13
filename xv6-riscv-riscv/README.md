@@ -135,7 +135,7 @@ xv6 kernel is booting
 hart 2 starting
 hart 1 starting
 usertrapret  sepc=0 sstatus=20, satp=87fff, user satp = 87f76 
-**call** usertrap  sepc=14 sstatus=20  scause = 8 
+call usertrap  sepc=14 sstatus=20  scause = 8 
 page table 0x0000000087f6f000
 ..0: pte 0x0000000021fdac01 pa 0x0000000087f6b000
 .. ..0: pte 0x0000000021fda801 pa 0x0000000087f6a000
@@ -147,91 +147,91 @@ page table 0x0000000087f6f000
 .. .. ..510: pte 0x0000000021fddc07 pa 0x0000000087f77000
 .. .. ..511: pte 0x0000000020001c0b pa 0x0000000080007000
 usertrapret  sepc=0 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=3b0 sstatus=20  scause = 8 
+call usertrap  sepc=3b0 sstatus=20  scause = 8 
 kerneltrap timer interrupt ,old  sepc=-7ffff390 old sstatus=120  sepc=-7ffff390 sstatus=120
 usertrapret  sepc=3b4 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=3b8 sstatus=20  scause = 8 
+call usertrap  sepc=3b8 sstatus=20  scause = 8 
 usertrapret  sepc=3bc sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=3b0 sstatus=20  scause = 8 
+call usertrap  sepc=3b0 sstatus=20  scause = 8 
 usertrapret  sepc=3b4 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=3e8 sstatus=20  scause = 8 
+call usertrap  sepc=3e8 sstatus=20  scause = 8 
 usertrapret  sepc=3ec sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=3e8 sstatus=20  scause = 8 
+call usertrap  sepc=3e8 sstatus=20  scause = 8 
 usertrapret  sepc=3ec sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
 iusertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
 nusertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
 iusertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
 tusertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
 :usertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
  usertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
 susertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
 tusertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
 ausertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
 rusertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
 tusertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
 iusertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
-kerneltrap timer interrupt ,old  sepc=-7fffd6da old **sstatus=120**  sepc=-7fffd6da **sstatus=120**
+call usertrap  sepc=390 sstatus=20  scause = 8 
+kerneltrap timer interrupt ,old  sepc=-7fffd6da old sstatus=120  sepc=-7fffd6da sstatus=120
 nusertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
 gusertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
  usertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
 susertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
 husertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=390 sstatus=20  scause = 8 
+call usertrap  sepc=390 sstatus=20  scause = 8 
 
 usertrapret  sepc=394 sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap  sepc=368 sstatus=20  scause = 8 
+call usertrap  sepc=368 sstatus=20  scause = 8 
 usertrapret  sepc=36c sstatus=20, satp=87fff, user satp = 87f6f 
 usertrapret  sepc=36c sstatus=20, satp=87fff, user satp = 87f76 
-**call** usertrap  sepc=36c sstatus=20  scause = 9 
+call usertrap  sepc=36c sstatus=20  scause = 9 
 usertrapret  sepc=36c sstatus=20, satp=87fff, user satp = 87f6f 
-**call** usertrap **call**  sepc=36c sstatus=20  scause = 9 
+call usertrap call  sepc=36c sstatus=20  scause = 9 
 usertrap  sepc=378 sstatus=20  scause = 8 
 usertrapret  sepc=36c sstatus=20, satp=87fff, user satp = 87f76 
-**call** usertrap  sepc=3a8 sstatus=20  scause = 8 
+call usertrap  sepc=3a8 sstatus=20  scause = 8 
 usertrapret  sepc=a60 sstatus=20, satp=87fff, user satp = 87f64 
-**call** usertrap  sepc=e0c sstatus=20  scause = 8 
+call usertrap  sepc=e0c sstatus=20  scause = 8 
 usertrapret  sepc=e10 sstatus=20, satp=87fff, user satp = 87f64 
-**call** usertrap  sepc=df4 sstatus=20  scause = 8 
+call usertrap  sepc=df4 sstatus=20  scause = 8 
 usertrapret  sepc=df8 sstatus=20, satp=87fff, user satp = 87f64 
-**call** usertrap  sepc=dec sstatus=20  scause = 8 
+call usertrap  sepc=dec sstatus=20  scause = 8 
 $usertrapret  sepc=df0 sstatus=20, satp=87fff, user satp = 87f64 
-**call** usertrap  sepc=dec sstatus=20  scause = 8 
+call usertrap  sepc=dec sstatus=20  scause = 8 
  usertrapret  sepc=df0 sstatus=20, satp=87fff, user satp = 87f64 
-**call** usertrap  sepc=de4 sstatus=20  scause = 8 
+call usertrap  sepc=de4 sstatus=20  scause = 8 
 
 usertrapret  sepc=de8 sstatus=20, satp=87fff, user satp = 87f64 
-**call** usertrap  sepc=dc4 sstatus=20  scause = 8 
+call usertrap  sepc=dc4 sstatus=20  scause = 8 
 usertrapret  sepc=dc8 sstatus=20, satp=87fff, user satp = 87f64 
-usertrapre**call** t  sepc=dc8 sstatus=20, satp=87fff, user satp = 87f76 
+usertraprecall t  sepc=dc8 sstatus=20, satp=87fff, user satp = 87f76 
 usertrap  sepc=dd4 sstatus=20  scause = 8 
-**call** usertrap  sepc=e54 sstatus=20  scause = 8 
+call usertrap  sepc=e54 sstatus=20  scause = 8 
 usertrapret  sepc=e58 sstatus=20, satp=87fff, user satp = 87f76 
-**call** usertrap  sepc=dcc sstatus=20  scause = 8 
+call usertrap  sepc=dcc sstatus=20  scause = 8 
 usertrapret  sepc=dd8 sstatus=20, satp=87fff, user satp = 87f64 
-**call** usertrap  sepc=dec sstatus=20  scause = 8 
+call usertrap  sepc=dec sstatus=20  scause = 8 
 $usertrapret  sepc=df0 sstatus=20, satp=87fff, user satp = 87f64 
-**call** usertrap  sepc=dec sstatus=20  scause = 8 
+call usertrap  sepc=dec sstatus=20  scause = 8 
  usertrapret  sepc=df0 sstatus=20, satp=87fff, user satp = 87f64 
-**call** usertrap  sepc=de4 sstatus=20  scause = 8 
+call usertrap  sepc=de4 sstatus=20  scause = 8 
 
 usertrapret  sepc=de8 sstatus=20, satp=87fff, user satp = 87f64 
-**call** usertrap  sepc=dc4 sstatus=20  scause = 8 
-kerneltrap timer interrupt ,old  sepc=-7fffd6da old sstatus=120  sepc=-7fffd6da **sstatus=120**
+call usertrap  sepc=dc4 sstatus=20  scause = 8 
+kerneltrap timer interrupt ,old  sepc=-7fffd6da old sstatus=120  sepc=-7fffd6da sstatus=120
 ```
