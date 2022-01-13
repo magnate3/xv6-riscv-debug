@@ -235,3 +235,5 @@ usertrapret  sepc=de8 sstatus=20, satp=87fff, user satp = 87f64
 call usertrap  sepc=dc4 sstatus=20  scause = 8 
 kerneltrap timer interrupt ,old  sepc=-7fffd6da old sstatus=120  sepc=-7fffd6da sstatus=120
 ```
+**kerneltrap sstatus=120**
+**usertrap  sstatus=20**
