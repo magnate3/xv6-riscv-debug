@@ -8,6 +8,32 @@
 	# kernel.ld causes this to be aligned
         # to a page boundary.
         #
+#define UART_BASE	0x10000000
+#define THR_OFFSET	0x00
+#define LSR_OFFSET	0x14
+
+.macro PUTACHAR tmp0, tmp1, tmp2, inputreg
+	li 	\tmp0, 0x10000000
+	lwu	\tmp1, 0(\tmp0)
+	li	\tmp2, 0xff
+	not 	\tmp2, \tmp2
+	and	\tmp1, \tmp1, \tmp2
+	or	\tmp1, \tmp1, \inputreg
+	sw	\tmp1, 0(\tmp0)
+.endm
+.macro SBI_PUTCHAR value
+	mv a0, zero
+        mv a1, zero
+        mv a2, zero
+        mv a3, zero
+        mv a4, zero
+        mv a5, zero
+        mv a6, zero
+        mv a7, zero
+        li a7, 1
+	li a0, \value
+        ecall
+.endm
 	.section trampsec
 .globl trampoline
 trampoline:
@@ -80,7 +106,11 @@ uservec:
 
         # a0 is no longer valid, since the kernel page
         # table does not specially map p->tf.
-
+        PUTACHAR a3,a4,a5,0x63
+        PUTACHAR a3,a4,a5,0x61
+        PUTACHAR a3,a4,a5,0x6c
+        PUTACHAR a3,a4,a5,0x6c
+        PUTACHAR a3,a4,a5,0x20
         # jump to usertrap(), which does not return
         jr t0
 
@@ -133,6 +163,18 @@ userret:
         ld t5, 272(a0)
         ld t6, 280(a0)
 
+        #SBI_PUTCHAR 0x7f
+        #SBI_PUTCHAR 0x7d
+        #SBI_PUTCHAR 0x7c
+        #SBI_PUTCHAR 0x65
+        #SBI_PUTCHAR 0x7e
+        #SBI_PUTCHAR 0x20
+        #PUTACHAR a3,a4,a5,0x7f
+        #PUTACHAR a3,a4,a5,0x7d
+        #PUTACHAR a3,a4,a5,0x7c
+        #PUTACHAR a3,a4,a5,0x65
+        #PUTACHAR a3,a4,a5,0x7e
+        #PUTACHAR a3,a4,a5,0x20
 	# restore user a0, and save TRAPFRAME in sscratch
         csrrw a0, sscratch, a0
         
